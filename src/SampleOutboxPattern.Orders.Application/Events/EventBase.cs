@@ -9,7 +9,7 @@ namespace SampleOutboxPattern.Orders.Application.Events
         public EventBase(string version)
         {
             Version = version;
-            OccuredAt = DateTime.UtcNow;
+            OccuredOn = DateTime.UtcNow;
             _eventId = Guid.NewGuid();
         }
 
@@ -19,7 +19,7 @@ namespace SampleOutboxPattern.Orders.Application.Events
 
         public string Version { get; }
 
-        public DateTime OccuredAt { get; }
+        public DateTime OccuredOn { get; }
 
         public string PartitionKey() => $"{EventName}-{this.EventId}";
     }

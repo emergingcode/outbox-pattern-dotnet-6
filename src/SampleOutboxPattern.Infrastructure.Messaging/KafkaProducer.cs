@@ -23,11 +23,8 @@ namespace SampleOutboxPattern.Infrastructure.Messaging
         {
             // If serializers are not specified, default serializers from
             // `Confluent.Kafka.Serializers` will be automatically used where
-            // available. Note: by default strings are encoded as UTF8.
-            using (var p = new ProducerBuilder<TKeyType, TEntity>(_producerConfig)
-                .SetKeySerializer(new JsonSerializerUTF8<TKeyType>())
-                .SetValueSerializer(new JsonSerializerUTF8<TEntity>())
-                .Build())
+            // available. Note: by default strings are encoded as UTF8.            
+            using (var p = new ProducerBuilder<TKeyType, TEntity>(_producerConfig).Build())
             {
                 var message = new Message<TKeyType, TEntity>
                 {

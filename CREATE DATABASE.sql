@@ -12,7 +12,7 @@ CREATE TABLE Orders
     CustomerId VARCHAR(200) NOT NULL,
     TotalItems DECIMAL(18,2) NOT NULL,
     Total DECIMAL(18,2) NOT NULL,
-    CreatedAt DATE NOT NULL
+    CreatedOn DATE NOT NULL
 )
 
 CREATE TABLE OrderDetails
@@ -29,3 +29,16 @@ CREATE TABLE OrderDetails
 ALTER TABLE OrderDetails ADD CONSTRAINT OrderDetails_Order
     FOREIGN KEY (OrderId)
     REFERENCES Orders (Id);
+
+
+
+CREATE TABLE OutboxIntegrationOrderEvents
+(
+    Id UNIQUEIDENTIFIER PRIMARY KEY,
+	PartitionKey VARCHAR(100) NOT NULL,
+	FullName VARCHAR(300) NOT NULL,
+	Name VARCHAR(100) NOT NULL,
+	Data VARCHAR(MAX) NOT NULL,
+	OccurredOn DATETIME2 NOT NULL,
+	ProcessedOn DATETIME2 NULL
+)

@@ -15,7 +15,7 @@ namespace SampleOutboxPattern.Orders.Application.Models
         public int CustomerId { get; }
         public int TotalItems => Products.Count();
         public decimal Total => Products.Sum(p => p.Quantity * p.Value);
-        public DateTime CreatedAt { get; }
+        public DateTime CreatedOn { get; }
         public IEnumerable<OrderItem> Products
         {
             get => _orderItems.ToList();
@@ -36,7 +36,7 @@ namespace SampleOutboxPattern.Orders.Application.Models
                         })
                         .ToList();
 
-            CreatedAt = DateTime.UtcNow;
+            CreatedOn = DateTime.UtcNow;
 
             AddEvent(new CustomerOrderPlacedV1(CustomerId, Products));
         }

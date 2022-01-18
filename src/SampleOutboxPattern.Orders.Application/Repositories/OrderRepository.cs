@@ -4,7 +4,7 @@ using SampleOutboxPattern.Orders.Application.Models;
 
 using System.Data.SqlClient;
 
-namespace SampleOutboxPattern.Orders.Application.Repository
+namespace SampleOutboxPattern.Orders.Application.Repositories
 {
     internal class OrderRepository
     {
@@ -31,8 +31,6 @@ namespace SampleOutboxPattern.Orders.Application.Repository
                         Quantity = orderProduct.Quantity,
                         LineNumber = lineNumber++
                     });
-
-                    // INSERT ORDER PRODUCTS
                 }
 
                 connection.Close();
