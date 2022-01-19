@@ -1,8 +1,8 @@
-CREATE DATABASE OrderManagement;
+CREATE DATABASE Outbox_OrderManagement;
 
 GO
 
-USE OrderManagement;
+USE Outbox_OrderManagement;
 
 GO
 

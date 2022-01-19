@@ -12,7 +12,7 @@ namespace SampleOutboxPattern.BackgroundWorker.ReadRepositories
         {
             try
             {
-                using SqlConnection connection = new SqlConnection("Server=localhost,1433;Database=OrderManagement;User Id=sa;Password=ec_om@2022;");
+                using SqlConnection connection = new SqlConnection("Server=localhost,1433;Database=Outbox_OrderManagement;User Id=sa;Password=ec_om@2022;");
 
                 connection.Open();
 
@@ -33,7 +33,7 @@ namespace SampleOutboxPattern.BackgroundWorker.ReadRepositories
         {
             try
             {
-                using SqlConnection connection = new SqlConnection("Server=localhost,1433;Database=OrderManagement;User Id=sa;Password=ec_om@2022;");
+                using SqlConnection connection = new SqlConnection("Server=localhost,1433;Database=Outbox_OrderManagement;User Id=sa;Password=ec_om@2022;");
 
                 connection.Open();
 
