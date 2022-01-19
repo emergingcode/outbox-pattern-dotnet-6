@@ -3,7 +3,7 @@ version: '3.4'
 services:
   sqlserver:
     image: mcr.microsoft.com/mssql/server
-    container_name: ec-aswmoderna-mssql
+    container_name: sample-outbox-mssql
     hostname: mssqls-server
     ports:
       - 1433:1433
@@ -14,6 +14,7 @@ services:
 
   zoo1:
     image: zookeeper:3.4.9
+    container_name: sample-outbox-zookeeper
     hostname: zoo1
     ports:
       - '2181:2181'
@@ -23,6 +24,7 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:5.5.1
+    container_name: sample-outbox-kafkabroker
     hostname: kafka
     ports:
       - '9092:9092'
